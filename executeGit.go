@@ -50,13 +50,11 @@ func main() {
 }
 
 func executeGit(path string, option string) (bool) {
-	green := "\x1b[32;1m"
-	black := "\x1b[0m"
 	files, err := ioutil.ReadDir(path)
 	if err != nil {
 		log.Fatal(err)
 	}
-	sep := "--------------------------------------\n--------------------------------------"
+
 	for _, file := range files {
 		name := file.Name()
 		if file.IsDir() {
@@ -69,7 +67,7 @@ func executeGit(path string, option string) (bool) {
 				if err != nil {
 					fmt.Printf("%s\n", err)
 				} else {
-					fmt.Printf("%s\n%s%s%s\n%s\n%s\n", sep, green, name, black, sep, out)
+					printResult(name, out)
 				}
 				} else {
 					executeGit(filePathSh, option)
@@ -104,4 +102,12 @@ func checkDir(path string) ([]string) {
 		}
 	}
 	return listDir
+}
+
+func printResult(title string, content []byte) {
+	sep 	:= "--------------------------------------\n--------------------------------------"
+	green := "\x1b[32;1m"
+	black := "\x1b[0m"
+
+	fmt.Printf("%s\n%s%s%s\n%s\n%s\n", sep, green, title, black, sep, content)
 }
