@@ -22,14 +22,17 @@ func main() {
 		log.Fatal("No option given, Please specify option.")
 		return
 	}
+
 	if firstArgs == "--help" {
 		fmt.Printf("-s\tgit status\n-P\tgit pull\n-c\tgit-clean\n-b\tgit branch\n")
 		return
 	}
+
 	if path = os.Args[2]; path == "" {
 		log.Fatal("No path given, Please specify path.")
 		return
 	}
+
 	if firstArgs == "-s" {
 		option = "git status"
 	} else if firstArgs == "-P" {
@@ -51,12 +54,14 @@ func main() {
 
 func executeGit(path string, option string) (bool) {
 	files, err := ioutil.ReadDir(path)
+
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	for _, file := range files {
 		name := file.Name()
+
 		if file.IsDir() {
 			var filePath string   = filepath.Join(path, name)
 			var filePathSh string = path+"/"+name
@@ -64,12 +69,14 @@ func executeGit(path string, option string) (bool) {
 			if isGit(filePath) {
 				var cmd string = "cd "+filePathSh+" && "+option
 				out, err := exec.Command("bash","-c", cmd).Output()
+
 				if err != nil {
 					fmt.Printf("%s\n", err)
 				} else {
 					printResult(name, out)
 				}
-				} else {
+
+			} else {
 					executeGit(filePathSh, option)
 			}
 		}
