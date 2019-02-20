@@ -65,7 +65,6 @@ func executeGit(path string, option string) (bool) {
 
 			if isGit(filePath) {
 				var cmd string = "cd "+filePathSh+" && "+option
-				// var cmd string = "cd "+filePathSh+" && git remote prune origin && git branch -vv | grep \"origin/.*: gone]\" | awk \"{print }\" | xargs git branch -D 2>/dev/null"
 				out, err := exec.Command("bash","-c", cmd).Output()
 				if err != nil {
 					fmt.Printf("%s\n", err)
