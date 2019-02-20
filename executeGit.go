@@ -23,7 +23,7 @@ func main() {
 		return
 	}
 	if firstArgs == "--help" {
-		fmt.Printf("-s	git status\n-P	git pull\n-c	git-clean")
+		fmt.Printf("-s\tgit status\n-P\tgit pull\n-c\tgit-clean\n-b\tgit branch\n")
 		return
 	}
 	if path = os.Args[2]; path == "" {
@@ -36,6 +36,8 @@ func main() {
 		option = "git pull"
 	} else if firstArgs == "-c" {
 		option = "git remote prune origin && git branch -vv | grep \"origin/.*: gone]\" | awk \"{print }\" | xargs git branch -D 2>/dev/null"
+	} else if firstArgs == "-b" {
+		option = "git branch"
 	} else {
 		log.Fatal("Wrong option given. Please call --help")
 		return
