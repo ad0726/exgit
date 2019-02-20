@@ -10,6 +10,7 @@ import (
 )
 
 func main() {
+	toto := " _____  _____ ___ _____\n| __\\ \\/ / __|_ _|_   _|\n| _| >  < (_ || |  | |\n|___/_/\\_\\___|___| |_|\n\n"
 	var firstArgs string
 	var path string
 	var option string
@@ -24,7 +25,7 @@ func main() {
 	}
 
 	if firstArgs == "--help" {
-		fmt.Printf("-s\tgit status\n-P\tgit pull\n-c\tgit-clean\n-b\tgit branch\n")
+		fmt.Printf(toto+"-s\tgit status\n-P\tgit pull\n-c\tgit-clean\n-b\tgit branch\n")
 		return
 	}
 
