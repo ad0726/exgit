@@ -5,6 +5,12 @@ A script to do some git commands on several repositories.
 
 ```
 $ exgit --help
+ _____  _____ ___ _____
+| __\ \/ / __|_ _|_   _|
+| _| >  < (_ || |  | |
+|___/_/\_\___|___| |_| [Ady]
+
+-v      exgit version
 -s      git status
 -P      git pull
 -c      git-clean
