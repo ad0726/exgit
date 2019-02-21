@@ -23,4 +23,4 @@ Path: the path of the directory where there are repositories.
 
 `git remote prune origin && git branch -vv | grep \"origin/.*: gone]\" | awk \"{print }\" | xargs git branch -D 2>/dev/null`
 
-This command checks and removes all unused branches
+This command checks and removes all deleted branches
