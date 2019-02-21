@@ -1,4 +1,4 @@
-EXGIT
+EXGIT v1.0.1
 
 A script to do some git commands on several repositories.
 <hr />
