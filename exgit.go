@@ -67,8 +67,9 @@ func executeGit(path string, option string) (bool) {
 
 	for _, file := range files {
 		name := file.Name()
+		link, _ := os.Readlink(filepath.Join(path, name))
 
-		if file.IsDir() {
+		if file.IsDir() || link != "" {
 			var filePath string   = filepath.Join(path, name)
 			var filePathSh string = path+"/"+name
 
