@@ -16,7 +16,7 @@ func main() {
 	var option string
 
 	if len(os.Args) == 1 {
-	  log.Fatal("No arguments given, Please specify arguments.")
+	  log.Fatal("No argument given, Please specify argument.")
 	  return
 	}
 	if firstArgs = os.Args[1]; firstArgs == "" {
@@ -34,9 +34,10 @@ func main() {
 		return
 	}
 
-	if path = os.Args[2]; path == "" {
-		log.Fatal("No path given, Please specify path.")
-		return
+	if len(os.Args) < 3 {
+		path = "."
+	} else {
+		path = os.Args[2]
 	}
 
 	if firstArgs == "-s" {
