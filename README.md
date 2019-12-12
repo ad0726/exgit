@@ -1,3 +1,5 @@
+Now on GitLab: https://gitlab.com/adynemo/exgit
+
 <h1>EXGIT v1.0.1</h1>
 
 A script to do some git commands on several repositories.
